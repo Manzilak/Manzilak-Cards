@@ -14,11 +14,18 @@
         exit;
     }
 
-    include_once( plugin_dir_path(__FILE__) . 'inc/mancards-settings.php' );
-    include_once( plugin_dir_path(__FILE__) . 'inc/mancards-head.php' );
-
+    require_once( plugin_dir_path(__FILE__) . 'inc/mancards-settings.php' );
+    require_once( plugin_dir_path(__FILE__) . 'inc/mancards-head.php' );
+     
     function manzilak_cards() {
-
+        global $seo_home_metas,
+                $schema_home_tags,
+                $facebook_home_og,
+                $twitter_home_cards,
+                $seo_article_metas,
+                $schema_article_tags,
+                $facebook_article_og,
+                $twitter_article_cards;
         if( is_home() ) {
             echo $seo_home_metas;
             echo $schema_home_tags;
