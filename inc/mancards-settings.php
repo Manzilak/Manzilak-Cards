@@ -32,6 +32,7 @@
     }
 
     function settings_page() {
+        
 ?>
     <div class="wrap">
     <h1>Manzilak Cards</h1>
