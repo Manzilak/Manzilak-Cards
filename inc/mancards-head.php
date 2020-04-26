@@ -29,7 +29,9 @@
 
         $article_author = the_author();
         $article_url = is_single() ? get_permalink( $post->ID ) : '';
-        $article_image = is_single() ? wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0] : '';
+        // php 7.4 fix 
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+        $article_image = is_single() ? ($image ? $image[0] : '') : '';
         $article_date = is_single() ? $post->date : '';
         $article_modified = is_single() ? $post->post_modified : '';
         $article_category = is_single() ? get_the_category()[0]->name : '';
